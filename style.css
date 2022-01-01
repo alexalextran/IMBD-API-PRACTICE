@@ -6,6 +6,8 @@
     box-sizing: border-box;
     font-family: 'Roboto', sans-serif ;
     background-color: rgb(240, 240, 240);
+   letter-spacing: 0.9px;
+    
 }
 
 ul{
@@ -80,6 +82,26 @@ LANDING PAGE
 .title__header--para{
     font-size: 20px;
 }
+
+
+.title__icons{
+    display: flex;
+}
+
+.icon{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 350px;
+    padding: 70px 48px;
+    text-align: center;
+}
+
+.aficon{
+    font-size: 48px;
+    padding-bottom: 20px;
+}
+
 
 .fa-arrows-alt-v{
 font-size: 40px;
