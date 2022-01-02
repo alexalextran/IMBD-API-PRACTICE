@@ -4,17 +4,19 @@ const movieslist = document.querySelector(".movie__list")
 
 async function search(){
     const searchvalue = document.getElementById('searchBar').value
+    const searchyear = document.getElementById('searchBar__year').value
+    var searchtype = document.getElementById("filter").value;
 
-    const movies = await fetch(`http://www.omdbapi.com/?apikey=749ea3ae&s=${searchvalue}`)
+    const movies = await fetch(`http://www.omdbapi.com/?apikey=749ea3ae&s=${searchvalue}&y=${searchyear}&type=${searchtype}`)
     const moviesData = await movies.json()
 
-    var hi = moviesData.Search.map((movie)=> movieHTML(movie)).join('')
+    //var hi = moviesData.Search.map((movie)=> movieHTML(movie)).join('')
 
-movieslist.innerHTML = hi
+//movieslist.innerHTML = hi
 
 
 
-    console.log(moviesData)
+    console.log(searchtype)
 }
 
 
