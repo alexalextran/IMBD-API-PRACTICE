@@ -88,31 +88,58 @@
     </div>
 
 <div class="search"> 
-    <input type="search"  id="searchBar" onsearch="search(event)" placeholder="Search..">
+    <input type="search"  id="searchBar" placeholder="Search..">
 
     <input type="search"  id="searchBar__year" placeholder="Year..">
 
-    <select name="" id="filter">
-        <option value="" disabled selected>Type</option>
+    <select name="" id="filter" >
+        <option value="">Type</option>
         <option value="movie">Movie</option>
         <option value="series">Series</option>
-        <option value="episode">Episode</option>
+       
       </select>
 
+      <button class="searchbutton" onclick="search(event)">
+          
+        <i class="fas fa-search"></i>
+      </button>
 
 </div>
    
     <div class="movie__list">
 
-    
+        <div class="movie" onclick="about(`tt1160419`)">
+            <div>
+            <img class="poster" src = "${movie.Poster}" ">
+            </div>
+        
+            <h3 class="movie__title">
+                ${movie.Title}
+            </h3>
+        
+            <p class="release__date">
+            ${movie.Year}
+            </p>
+        
+            <p class="release__date">
+            ${movie.Type}
+            </p>
+        
+            <p class="short__desc">
+            ${movie.imdbID}
+            </p>
+        </div>
 
         
         
 
     </div>
-<script src="index.js"></script> 
-  </section>
 
+  </section>
+<script src="index.js">
+
+    
+</script> 
 
 
   <footer>

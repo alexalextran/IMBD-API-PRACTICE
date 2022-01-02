@@ -10,22 +10,20 @@ async function search(){
     const movies = await fetch(`http://www.omdbapi.com/?apikey=749ea3ae&s=${searchvalue}&y=${searchyear}&type=${searchtype}`)
     const moviesData = await movies.json()
 
-    //var hi = moviesData.Search.map((movie)=> movieHTML(movie)).join('')
+    var hi = moviesData.Search.map((movie)=> movieHTML(movie)).join('')
 
-//movieslist.innerHTML = hi
+movieslist.innerHTML = hi
 
 
 
-    console.log(searchtype)
+    console.log(moviesData)
 }
-
-
 
 
 function movieHTML(movie){
     
 var movieobject =
-    `<div class="movie">
+    `<div class="movie" onclick="about('${movie.imdbID}')">
     <div>
     <img class="poster" src = "${movie.Poster}" ">
     </div>
@@ -48,4 +46,11 @@ var movieobject =
 </div>`
 
 return movieobject
+}
+
+
+function about(id) {
+    localStorage.setItem("id", id)
+
+    console.log("works")
 }
