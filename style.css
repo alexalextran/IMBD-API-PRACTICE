@@ -260,8 +260,40 @@ MOVIES
     grid-template-columns: repeat(2, 250px [col-start]);
     row-gap: 20px;
     column-gap: 20px;
+    padding-top: 24px;
   }
 
   .movie__poster--large{
       width: 350px;
+  }
+
+  .movie__card--text{
+    padding: 30px;
+  }
+
+ 
+
+
+  .moive__card--description{
+      background-color: aqua;
+      width: 35%;
+  }
+  .movie__card--para{
+    padding: 20px;
+    font-size: 18px;
+    font-weight: 300;
+  }
+
+  .moive__card--rating{
+      width: 100%;
+      display: flex;
+      justify-content: center;
+  }
+  
+  .rates{
+      width: 33.3%;
+      background-color: aquamarine;
+      text-align: center;
+      display: flex;
+      align-items: center;
   }

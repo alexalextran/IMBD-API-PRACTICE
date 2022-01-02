@@ -30,7 +30,7 @@ function detailedmovieHTML(desc){
         <img src="${desc.Poster}" alt="" class="movie__poster--large">
 
         <ul class="movie__genres">
-        ${desc.Genre}
+        ${genresplitter(desc.Genre)}
         </ul>
     </div>
    
@@ -61,7 +61,7 @@ function detailedmovieHTML(desc){
     </div>
 
     <div class="moive__card--description">
-    <p>${desc.Plot}</p>
+    <p class="movie__card--para">${desc.Plot}</p>
 
     <div class="moive__card--rating">
         <ul class="ratings">
@@ -86,6 +86,23 @@ function detailedmovieHTML(desc){
         return xd
 }
 
+function genresplitter(string){
+    const myArray = string.split(" ");
+    hey = `<li>
+            ${myArray[0]}
+        </li>
+
+        <li>
+            ${myArray[1]}
+        </li>
+
+        <li>
+            ${myArray[2]}
+        </li>
+    `
+
+    return hey
+}
 
 function ratingexist(desc){
    
@@ -94,7 +111,7 @@ function ratingexist(desc){
     switch(desc.length) {
         case 1:
 
-          hey = `<li>
+          hey = `<li class="rates">
           DBMI : ${(desc[0]).Value}
       </li>`
 
@@ -104,12 +121,12 @@ function ratingexist(desc){
 
         case 2:
           
-            hey = `<li>
-            DBMI : ${(desc[0].Value)}
+            hey = `<li class="rates">
+            DBMI  ${(desc[0].Value)}
         </li>
         
-        <li>
-        rotten tomatoes : ${(desc[1].Value)}
+        <li class="rates">
+        rotten tomatoes ${(desc[1].Value)}
         </li>
         
         `
@@ -117,35 +134,34 @@ function ratingexist(desc){
 
           case 3:
          
-            hey = `<li>
-            DBMI : ${(desc[0].Value)}
+            hey = `<li class="rates">
+            DBMI ${(desc[0].Value)}
         </li>
         
-        <li>
-        rotten tomatoes : ${(desc[1].Value)}
+        <li class="rates">
+        rotten tomatoes ${(desc[1].Value)}
         </li>
 
-        <li>
-        Metacritic : ${(desc[1].Value)}
+        <li class="rates">
+        Metacritic ${(desc[1].Value)}
         </li>
         `
 
           break;
 
 
-        default: hey =  `<li>
+        default: hey =  `<li class="rates">
         DBMI : 
     </li>
     
-    <li>
+    <li class="rates">
     rotten tomatoes : 
     </li>
 
-    <li>
+    <li class="rates">
     Metacritic : 
     </li>
     `
-          // code block
       }
 
 
