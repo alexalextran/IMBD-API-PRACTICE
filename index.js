@@ -2,6 +2,7 @@ const movieslist = document.querySelector(".movie__list")
 
 
 
+
 async function search(){
     const searchvalue = document.getElementById('searchBar').value
     const searchyear = document.getElementById('searchBar__year').value
@@ -21,9 +22,11 @@ movieslist.innerHTML = hi
 
 
 function movieHTML(movie){
+
+
     
 var movieobject =
-    `<div class="movie" onclick="about('${movie.imdbID}')">
+    `<div class="movie" onclick="changeid('${movie.imdbID}')">
     <div>
     <img class="poster" src = "${movie.Poster}" ">
     </div>
@@ -49,8 +52,7 @@ return movieobject
 }
 
 
-function about(id) {
+function changeid(id){
     localStorage.setItem("id", id)
-
-    console.log("works")
+    window.location.href = "movie.html"
 }

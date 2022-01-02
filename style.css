@@ -226,3 +226,42 @@ MOVIES
       font-weight: 600;
       padding: 20px 0px;
   }
+
+
+
+  /* 
+
+
+  MOVIE.HTML
+
+
+
+  */
+
+
+  .movie__card{
+      margin: 0px auto;
+      border: 2px solid black;
+      width: 80%;
+      max-width: 1700px;
+  }
+
+  .movie__card--header{
+      display: flex;
+  }
+
+  .movie__card--title{
+    font-size: 48px;
+  }
+
+  .movie__card--info{
+      font-size: 22px;
+      display: grid;
+    grid-template-columns: repeat(2, 250px [col-start]);
+    row-gap: 20px;
+    column-gap: 20px;
+  }
+
+  .movie__poster--large{
+      width: 350px;
+  }
