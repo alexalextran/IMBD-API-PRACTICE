@@ -89,6 +89,17 @@
 
 <div class="search"> 
     <input type="search"  id="searchBar" onsearch="search(event)" placeholder="Search..">
+
+    <input type="search"  id="searchBar" placeholder="Year..">
+
+    <select name="" id="filter" onchange="filterBooks(event)">
+        <option value="" disabled selected>Type</option>
+        <option value="LOW_TO_HIGH">Movie</option>
+        <option value="HIGH_TO_LOW">Series</option>
+        <option value="HIGH_TO_LOW">Episode</option>
+      </select>
+
+
 </div>
    
     <div class="movie__list">
@@ -96,10 +107,10 @@
     
 
         
-        <script src="index.js"></script> 
+        
 
     </div>
-
+<script src="index.js"></script> 
   </section>
 
 
