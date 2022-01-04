@@ -250,17 +250,21 @@ MOVIES
 
   .movie__card{
       margin: 0px auto;
-      border: 2px solid black;
+      border: 1px solid black;
       width: 80%;
       max-width: 1700px;
       min-width: 1350px;
-      --hex-parent-height: 586.5px;
+      --hex-parent-height: ;
+      max-height: 586.5px;
       box-sizing: border-box;
+      
   }
 
   .movie__card--header{
       display: flex;
       width: 100%;
+      max-height: 586.5px;
+      border: 2px solid black;
   }
 
   .movie__card--title{
@@ -279,6 +283,8 @@ MOVIES
 
   .movie__poster--wrapper{
       width: 350px;
+        display: flex;
+        flex-direction: column;
   }
 
   .movie__poster--large{
@@ -326,77 +332,27 @@ MOVIES
 
 
   .movie__card--description{
-      display: grid;
-    grid-template-rows: (30%, 15% ,15%, 15%, 15%);
-      width: 35%;
-      max-height: 600px;
-      position: relative;
-  }
+    display: grid;
+  grid-template-rows: (30%, 15% ,15%, 15%, 15%);
+    width: 35%;
+    max-height: 568.5px;
+}
 
-  .bruh{
-      height: calc(0.2 *  var(--hex-parent-height));
-  }
 
-  .movie__card--para{
-    padding: 20px;
-    font-size: 18px;
-    font-weight: 300;
-    line-height: 1.4;
-    transition: max-height 3s;
-   overflow: hidden;
-   position: absolute;
-    max-height: 110px;
-    z-index: 90;
-    top: 0px;
-    background-color: gray;
+.movie__card--para{
+  padding: 20px;
+  font-size: 18px;
+  font-weight: 300;
+  line-height: 1.6;
+ overflow: scroll;
+ border-bottom: 2px solid black;
  
-    
-  }
 
-  .read__more--effect.movie__card--para{
-      min-height: 151px;
-    max-height: 583px;
-    height: 583px;
-    position: absolute;
-    background-color: rgb(240, 240, 240);
-   
-    width: calc(30% * var(--hex-parent-height));
-    transition: max-height 3s;
-    background-color: gray;
-    
-  
 
-  }
 
-  .read__more{
-      border-right: none;
-      border-left: none;
-      border-top: none;
-      margin: 10px;
-      color: blue;
-      font-size: 18px;
-      z-index: 97;
-      transform: translatey(110px);
-      margin: 0;
-      background-color: gray;
-  }
+}
 
-  .read__less{
-    margin: 10px;
-    color: blue;
-    font-size: 18px;
-    border: none;
-   position: absolute;
-   bottom: 0;
-   right: 35%;
-   z-index: 99;
-  
-  }
 
-  #rl__wrapper{
-      opacity: 0;
-      transition: all 5s;
-  }
 
   .moive__card--rating{
       width: 100%;

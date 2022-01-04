@@ -78,22 +78,18 @@ function detailedmovieHTML(desc){
     </div>
 
     <div class="movie__card--description">
-    
-    <p class="movie__card--para">${desc.Plot}</p>
-    <button class="read__more" onclick="read__more()">Read More</button>
 
-    <div class="bruh"> bruh</div>
+    <div class="movie__card--para">
+    <p >${desc.Plot}</p>
+    </div>
 
-   
-
-    <div class="movie__card--rating">
-        <ul class="ratings border__bottom">
-
+    <div class="moive__card--rating">
+        <ul class="ratings">
             ${ratingexist(desc.Ratings)}
+           
         
         </ul>
     </div>
-
     
 
     
@@ -109,10 +105,6 @@ function detailedmovieHTML(desc){
         <p class="movie__people"> <span class="green">Actors:</span> ${desc.Actors} </p>
 
         
-        <div id ="rl__wrapper">
-            <button onclick="read__more()" class ="read__less">Read Less</button>
-        </div>
-       
 
     </div>
     
