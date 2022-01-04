@@ -4,7 +4,7 @@ const movie__card = document.querySelector(".movie__card")
 async function renderdesc(id) {
   
     
-     const moviedetailed = await fetch(`http://www.omdbapi.com/?apikey=749ea3ae&i=${id}`)
+     const moviedetailed = await fetch(`http://www.omdbapi.com/?apikey=749ea3ae&i=${id}&plot=full`)
      const moviesDatadetailed = await moviedetailed.json()
 
 
@@ -71,43 +71,44 @@ function detailedmovieHTML(desc){
               </p>
         </div>
 
-        <hr>
+        
 
         <h4 class="awards"> Awards: ${desc.Awards} </p>
         
     </div>
 
-    <div class="moive__card--description">
+    <div class="movie__card--description">
     <p class="movie__card--para">${desc.Plot}</p>
+    <button class="read__more" onclick="read__more()">Read More</button>
 
 
-    <hr>
+   
 
-    <div class="moive__card--rating">
-        <ul class="ratings">
+    <div class="movie__card--rating">
+        <ul class="ratings border__bottom">
 
             ${ratingexist(desc.Ratings)}
         
         </ul>
     </div>
 
-    <hr>
+    
 
-    <div class="movie__card--people">
+    
 
-        <p class="movie__people"> <span class="green">Director:</span> ${desc.Director}
+        <p class="movie__people border__bottom"> <span class="green">Directors:</span> ${desc.Director}
 
-        <hr>
+       
 
-        <p class="movie__people"> <span class="green">Writer:</span> ${desc.Writer} </p>
+        <p class="movie__people border__bottom"> <span class="green">Writers:</span> ${desc.Writer} </p>
       
-        <hr>
+       
 
         <p class="movie__people"> <span class="green">Actors:</span> ${desc.Actors} </p>
 
-        </div>
-
     </div>
+
+  
 
 
         
@@ -213,7 +214,7 @@ function ratingexist(desc){
         </li>
         
         <li class="rates">
-        rotten tomatoes ${(desc[1].Value)}
+        Rotten tomatoes <img class="tomato" src="/assets/1009px-Rotten_Tomatoes.svg.png">${(desc[1].Value)}
         </li>
         
         `
@@ -225,8 +226,9 @@ function ratingexist(desc){
             DBMI ${(desc[0].Value)}
         </li>
         
-        <li class="rates">
-        rotten tomatoes ${(desc[1].Value)}
+        <li class="rates" style="display:flex; flex-direction: column">
+        <p class="rt"> Rotten tomatoes </p>
+        <p>  <img class="tomato" src="/assets/1009px-Rotten_Tomatoes.svg.png"> ${(desc[1].Value)}</p>
         </li>
 
         <li class="rates">
@@ -242,7 +244,7 @@ function ratingexist(desc){
     </li>
     
     <li class="rates">
-    rotten tomatoes : 
+    Rotten tomatoes : 
     </li>
 
     <li class="rates">
@@ -267,7 +269,28 @@ function ratingexist(desc){
 
 
 renderdesc(id)
+let readmore = false
 
-function test(){
-    console.log("hi")
-}
+
+function read__more(){
+
+
+   // if (readmore) {
+   //     readmore = false;
+    //    return readoption.classList.remove("read__more--effect");
+     // }
+
+   
+
+      readmore = true;
+    let readoption =  document.querySelector(".movie__card--para")
+    var classes = readoption.classList
+      classes.add("read__more--effect")
+
+      
+     
+      
+    
+} 
+
+

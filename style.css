@@ -24,6 +24,10 @@ hr{
     background-color: black;
 }
 
+.border__bottom{
+    border-bottom: 2px solid black;
+}
+
 
 
 /* 
@@ -249,6 +253,7 @@ MOVIES
       border: 2px solid black;
       width: 80%;
       max-width: 1700px;
+      min-width: 1350px;
   }
 
   .movie__card--header{
@@ -277,6 +282,16 @@ MOVIES
       width: 350px;
   }
 
+  .awards{
+      font-size: 24px;
+      text-align: center;
+      margin: 32px 0px;
+      border: 4px solid rgb(176,154,81);
+      padding: 20px;
+      border-image: linear-gradient(45deg, rgb(176,154,81), rgb(240,224,13)) 100;
+    }
+  
+
   .genre{
       font-size: 14px;     
       border: 2px solid rgb(0, 0, 0);
@@ -285,6 +300,7 @@ MOVIES
       background-color: rgb(37,216,101);
       color: black;
       margin: 12px 4px;
+      
   }
 
   .movie__genres{
@@ -295,21 +311,53 @@ MOVIES
   
   }
 
+  .tomato{
+      height: 20px;
+      width: 20px;
+      margin: 0px 5px;
+  }
+
   .movie__card--text{
     padding: 30px;
   }
 
- 
 
-
-  .moive__card--description{
-     
+  .movie__card--description{
+      display: grid;
+    grid-template-rows: (30%, 15% ,15%, 15%, 15%);
       width: 35%;
+      max-height: 600px;
+      position: relative;
   }
   .movie__card--para{
     padding: 20px;
     font-size: 18px;
     font-weight: 300;
+    line-height: 1.4;
+    transition: max-height 3s;
+   overflow: hidden;
+    max-height: 110px;
+    
+  }
+
+  .read__more--effect{
+    max-height: 589px;
+    height: 587px;
+    background-color: rgb(240, 240, 240);
+    position: absolute;
+    width: calc(30% * var(--hex-parent-height));
+    transition: max-height 3s;
+  
+
+  }
+
+  .read__more{
+      border-right: none;
+      border-left: none;
+      border-top: none;
+      margin: 10px;
+      color: blue;
+      font-size: 18px;
   }
 
   .moive__card--rating{
@@ -327,10 +375,14 @@ MOVIES
   .ratings{
       justify-content: space-around;
       display: flex;
-      align-items: center;
+      align-items: flex-start;
+     
   }
 
   .movie__people{
       padding: 20px;
       font-size: 22px;
   }
+
+
+  
