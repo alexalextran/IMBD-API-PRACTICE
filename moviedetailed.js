@@ -29,9 +29,11 @@ function detailedmovieHTML(desc){
     <div class="movie__poster--wrapper">
         <img src="${desc.Poster}" alt="" class="movie__poster--large">
 
+        <div class="genre__wapper">
         <ul class="movie__genres">
         ${genresplitter(desc.Genre)}
         </ul>
+        </div>
     </div>
    
     
@@ -42,66 +44,151 @@ function detailedmovieHTML(desc){
         </h2>
         
         <div class="movie__card--info">
-            <p class="release__date">
+            <p>
                 Released: ${desc.Released}
             </p>
 
-            <p class="rated">
+            <p>
                 Rated: ${desc.Rated}
             </p>
 
            
 
-            <p class="run-time">
+            <p>
                 Runtime: ${desc.Runtime}
             </p>
+
+            <p>
+                Country: ${desc.Country}
+            </p>
+
+            <p>
+            Language: ${desc.Country}
+             </p>
+
+             <p>
+             Type: ${desc.Type  }
+              </p>
         </div>
 
+        <hr>
+
+        <h4 class="awards"> Awards: ${desc.Awards} </p>
         
     </div>
 
     <div class="moive__card--description">
     <p class="movie__card--para">${desc.Plot}</p>
 
+
+    <hr>
+
     <div class="moive__card--rating">
         <ul class="ratings">
 
             ${ratingexist(desc.Ratings)}
-           
-
-         
-
-          
-            
+        
         </ul>
     </div>
-</div>
+
+    <hr>
+
+    <div class="movie__card--people">
+
+        <p class="movie__people"> <span class="green">Director:</span> ${desc.Director}
+
+        <hr>
+
+        <p class="movie__people"> <span class="green">Writer:</span> ${desc.Writer} </p>
+      
+        <hr>
+
+        <p class="movie__people"> <span class="green">Actors:</span> ${desc.Actors} </p>
+
+        </div>
+
+    </div>
+
+
+        
+
 
 
 
 </div>
 
     `
-
+console.log(desc.Actors)
         return xd
 }
 
 function genresplitter(string){
-    const myArray = string.split(" ");
-    hey = `<li>
+    const myArray = string.split(", ");
+    console.log(myArray)
+
+    var hey = ""
+    
+    switch(myArray.length) {
+        case 1:
+
+          hey =  `<li class="genre">
+                    ${myArray[0]}
+                </li>`
+
+          break;
+
+        case 2:
+          
+           hey = `<li class="genre">
             ${myArray[0]}
         </li>
 
-        <li>
+        <li class="genre">
             ${myArray[1]}
         </li>
 
-        <li>
+        `
+          break;
+
+          case 3:
+         
+            hey = `<li class="genre">
+            ${myArray[0]}
+        </li>
+
+        <li class="genre">
+            ${myArray[1]}
+        </li>
+
+        <li class="genre">
             ${myArray[2]}
         </li>
-    `
+             `
 
-    return hey
+          break;
+
+          case 4:
+         
+            hey = `<li class="genre">
+            ${myArray[0]}
+        </li>
+
+        <li class="genre">
+            ${myArray[1]}
+        </li>
+
+        <li class="genre">
+            ${myArray[2]}
+        </li>
+
+        <li class="genre">
+        ${myArray[3]}
+         </li>
+             `
+    }
+
+          return hey
+
 }
 
 function ratingexist(desc){

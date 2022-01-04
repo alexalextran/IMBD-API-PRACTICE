@@ -19,6 +19,11 @@ ul{
     color: rgb(37,216,101);
 }
 
+hr{
+    height: 3px;
+    background-color: black;
+}
+
 
 
 /* 
@@ -258,13 +263,36 @@ MOVIES
       font-size: 22px;
       display: grid;
     grid-template-columns: repeat(2, 250px [col-start]);
+    grid-template-rows: repeat(3);
     row-gap: 20px;
     column-gap: 20px;
     padding-top: 24px;
   }
 
+  .movie__poster--wrapper{
+      width: 350px;
+  }
+
   .movie__poster--large{
       width: 350px;
+  }
+
+  .genre{
+      font-size: 14px;     
+      border: 2px solid rgb(0, 0, 0);
+      border-radius: 25px;
+      padding: 8px;
+      background-color: rgb(37,216,101);
+      color: black;
+      margin: 12px 4px;
+  }
+
+  .movie__genres{
+      display: flex;
+      justify-content: space-around;
+      max-width: 350px;
+ 
+  
   }
 
   .movie__card--text{
@@ -275,7 +303,7 @@ MOVIES
 
 
   .moive__card--description{
-      background-color: aqua;
+     
       width: 35%;
   }
   .movie__card--para{
@@ -291,9 +319,18 @@ MOVIES
   }
   
   .rates{
-      width: 33.3%;
-      background-color: aquamarine;
       text-align: center;
       display: flex;
       align-items: center;
+  }
+
+  .ratings{
+      justify-content: space-around;
+      display: flex;
+      align-items: center;
+  }
+
+  .movie__people{
+      padding: 20px;
+      font-size: 22px;
   }
