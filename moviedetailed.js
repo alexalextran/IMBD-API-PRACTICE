@@ -78,9 +78,11 @@ function detailedmovieHTML(desc){
     </div>
 
     <div class="movie__card--description">
+    
     <p class="movie__card--para">${desc.Plot}</p>
     <button class="read__more" onclick="read__more()">Read More</button>
 
+    <div class="bruh"> bruh</div>
 
    
 
@@ -106,7 +108,14 @@ function detailedmovieHTML(desc){
 
         <p class="movie__people"> <span class="green">Actors:</span> ${desc.Actors} </p>
 
+        
+        <div id ="rl__wrapper">
+            <button onclick="read__more()" class ="read__less">Read Less</button>
+        </div>
+       
+
     </div>
+    
 
   
 
@@ -270,25 +279,27 @@ function ratingexist(desc){
 
 renderdesc(id)
 let readmore = false
-
+let readoption =  document.querySelector(".movie__card--para")
 
 function read__more(){
+    let readoption =  document.querySelector(".movie__card--para")
 
-
-   // if (readmore) {
-   //     readmore = false;
-    //    return readoption.classList.remove("read__more--effect");
-     // }
+   if (readmore) {
+    readmore = false;
+    return readoption.classList.remove("read__more--effect");
+     }
 
    
 
       readmore = true;
-    let readoption =  document.querySelector(".movie__card--para")
+  
     var classes = readoption.classList
       classes.add("read__more--effect")
 
-      
-     
+
+      let readlessoption =  document.querySelector(".read__less")
+      var classess = readlessoption.classList
+      document.getElementById('rl__wrapper').style.opacity = "1";
       
     
 } 
