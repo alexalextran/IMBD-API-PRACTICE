@@ -18,7 +18,13 @@ movie__card.innerHTML = lol
     
 
     console.log(moviesDatadetailed)
+
+    
 }
+
+
+
+
 
 function detailedmovieHTML(desc){
     var xd =
@@ -74,7 +80,7 @@ function detailedmovieHTML(desc){
         
 
         <h4 class="awards"> Awards: ${desc.Awards} </p>
-        
+       
     </div>
 
     <div class="movie__card--description">
@@ -83,14 +89,15 @@ function detailedmovieHTML(desc){
     <p >${desc.Plot}</p>
     </div>
 
-    <div class="moive__card--rating">
+    <div class="moive__card--rating border__bottom">
         <ul class="ratings">
             ${ratingexist(desc.Ratings)}
            
         
         </ul>
+        
     </div>
-    
+     
 
     
 

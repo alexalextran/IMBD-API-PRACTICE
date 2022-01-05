@@ -88,10 +88,13 @@
     </div>
 
 <div class="search"> 
-    <input type="search"  id="searchBar" placeholder="Search..">
+    <form onsubmit="search(event)">
+    <input required type="search" id="searchBar" placeholder="Search..">
 
     <input type="search"  id="searchBar__year" placeholder="Year..">
 
+
+        
     <select name="" id="filter" >
         <option value="">Type</option>
         <option value="movie">Movie</option>
@@ -99,11 +102,11 @@
        
       </select>
 
-      <button class="searchbutton" onclick="search(event)">
+      <button type="submit" class="searchbutton" >
           
         <i class="fas fa-search"></i>
       </button>
-
+        </form>
 </div>
    
     <div class="movie__list">
@@ -133,6 +136,12 @@
         
         
 
+    </div>
+
+
+    <div class="error__message">
+        <img id="phrog" src="/assets/Remove background.png">
+ <p id="uh-oh">uh-oh looks like something went wrong</p> 
     </div>
 
   </section>
