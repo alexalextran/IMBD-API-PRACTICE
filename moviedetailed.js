@@ -247,17 +247,7 @@ function ratingexist(desc){
           break;
 
 
-        default: hey =  `<li class="rates">
-        DBMI : 
-    </li>
-    
-    <li class="rates">
-    Rotten tomatoes : 
-    </li>
-
-    <li class="rates">
-    Metacritic : 
-    </li>
+        default: hey =  `N/A
     `
       }
 

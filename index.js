@@ -8,6 +8,7 @@ var page = 1
 
 
 
+
 async function search(event){
 
     
@@ -28,7 +29,8 @@ const searchyear = document.getElementById('searchBar__year').value
 var searchtype = document.getElementById("filter").value;
     var movies = await fetch(`http://www.omdbapi.com/?apikey=749ea3ae&s=${searchvalue}&y=${searchyear}&type=${searchtype}`)
     var moviesData = await movies.json()
-    console.log(error_notification)
+    const maxpage = (Math.ceil(moviesData.totalResults / 10))
+    console.log(maxpage)
     page = 1
 
 
@@ -40,7 +42,7 @@ var searchtype = document.getElementById("filter").value;
     
                 if(error_notification===true){
                      error_notification = false
-                        console.log(error_notification)
+                     
                      
                         document.getElementById('phrog').style.cssText =
                         `
@@ -68,8 +70,21 @@ if(render_succsessful == false){
 
 
 movieslist.innerHTML = hi
+
 selector.innerHTML = page__selector()
 render_succsessful = true
+
+if (maxpage == 1){
+    
+    document.getElementById('forw').style.cssText =
+    `
+    color: black;
+    text-decoration: none;
+    cursor: none;
+    pointer-events: none;
+    `
+
+    }
 }
 
 
@@ -86,7 +101,7 @@ render_succsessful = true
 
                  error_notification = true
                     
-                    console.log(error_notification)
+                 
 
                 if (error_notification == true)  {
                                         document.getElementById('phrog').style.cssText =
@@ -144,7 +159,7 @@ return  `<div class="movie" onclick="changeid('${movie.imdbID}')">
 function page__selector(){
     return `
     
-    <a   id="prev" onclick="page__decrease()"> <<< Previous Page</a> <p  id="page__number">1</p> <a onclick="page__increase(event)" id="forw">Next Page >>></a>
+    <a   id="prev" onclick="page__decrease()"> <i class="fas fa-arrow-left"></i> Previous Page</a> <p  id="page__number">1</p> <a onclick="page__increase(event)" id="forw">Next Page <i class="fas fa-arrow-right"></i></a>
 
     `
 }
@@ -153,7 +168,7 @@ function page__selector(){
 
 
 async function page__increase(event){
-    console.log('work')
+  
     
     page++
     
@@ -167,7 +182,7 @@ async function page__increase(event){
        
         const moviesData = await movies.json()
         const maxpage = (Math.ceil(moviesData.totalResults / 10))
-               console.log(maxpage)
+           
 
        
        
@@ -217,7 +232,7 @@ async function page__increase(event){
 
 
 async function page__decrease(){
-    console.log('work')
+    
     page--
     
     const page__number = document.getElementById('page__number')
@@ -230,7 +245,7 @@ async function page__decrease(){
        
         const moviesData = await movies.json()
         const maxpage = (Math.ceil(moviesData.totalResults / 10))
-               console.log(maxpage)
+        
 
        
        
