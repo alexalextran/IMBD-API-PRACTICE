@@ -87,7 +87,15 @@ render_succsessful = true
           
 }
 
+function movie_poster(poster){
+    if(poster == "N/A"){
+        return `<img style="width:200px; height:200px;"src="/assets/missingpng.png">`
+    }
+    
+    return `<img class="poster" src = "${poster}">`
 
+   
+}
 
 
 function movieHTML(movie){
@@ -97,7 +105,7 @@ function movieHTML(movie){
 var movieobject =
     `<div class="movie" onclick="changeid('${movie.imdbID}')">
     <div>
-    <img class="poster" src = "${movie.Poster}" ">
+    ${movie_poster(movie.Poster)}
     </div>
 
     <h3 class="movie__title">
@@ -110,10 +118,6 @@ var movieobject =
 
     <p class="release__date">
     ${movie.Type}
-    </p>
-
-    <p class="short__desc">
-    ${movie.imdbID}
     </p>
 </div>`
 

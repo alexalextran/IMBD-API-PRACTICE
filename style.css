@@ -146,6 +146,12 @@ MOVIES
     justify-content: center;
 }
 
+.movies__title{
+    font-size: 50px;
+    padding: 30px 0px;
+    font-weight: 400;
+}
+
 #searchBar{
     justify-content: center;
     border-radius: 25px;
@@ -197,9 +203,20 @@ MOVIES
 }
 
 ::placeholder {
-    color: rgb(37,216,101); 
+    
     opacity: 1; 
   }
+
+  input:focus, textarea:focus, select:focus{
+    outline: none;
+
+    border: 2px solid rgb(37,216,101);
+}
+
+input{
+    border: none;
+}
+
 
   .movie__list{
       width: 100%;
@@ -211,12 +228,13 @@ MOVIES
 
  .movie{
      height: 600px;
-      border: 2px solid black;
+    cursor: pointer;
       width: 300px;
       margin: 2% 2%;
       text-align: center;
       align-items: center;
       justify-content: center;
+      border-bottom: 2px solid black;
 
   }
   
