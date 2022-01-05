@@ -2,6 +2,7 @@ const movieslist = document.querySelector(".movie__list")
 const selector = document.querySelector(".page__selector")
 let error_notification = false
 let render_succsessful = false
+var page = 1
 
 
 
@@ -28,6 +29,7 @@ var searchtype = document.getElementById("filter").value;
     var movies = await fetch(`http://www.omdbapi.com/?apikey=749ea3ae&s=${searchvalue}&y=${searchyear}&type=${searchtype}`)
     var moviesData = await movies.json()
     console.log(error_notification)
+    page = 1
 
 
    
@@ -147,7 +149,7 @@ function page__selector(){
     `
 }
 
-var page = 1
+
 
 
 async function page__increase(event){
@@ -179,7 +181,14 @@ async function page__increase(event){
                                         pointer-events: none;
                                         `
 
-        event.preventDefault()
+            document.getElementById('prev').style.cssText =
+                                        `
+                                        color: blue;
+                                        text-decoration: underline;
+                                        cursor: pointer;
+                                        pointer-events: all;
+                                        `
+
 
              
         }
@@ -190,6 +199,14 @@ async function page__increase(event){
             text-decoration: underline;
             cursor: pointer;
             `
+
+            document.getElementById('prev').style.cssText =
+            `
+            color: blue;
+            text-decoration: underline;
+            cursor: pointer;
+            pointer-events: all;
+            `
             
         }
             
@@ -197,6 +214,7 @@ async function page__increase(event){
         var hi = moviesData.Search.map((movie)=> movieHTML(movie)).join('')
         movieslist.innerHTML = hi
 }
+
 
 async function page__decrease(){
     console.log('work')
@@ -223,6 +241,7 @@ async function page__decrease(){
                                         color: black;
                                         text-decoration: none;
                                         cursor: default;
+                                        pointer-events: none;
                                         `
 
              
@@ -233,6 +252,7 @@ async function page__decrease(){
                                         color: blue;
                                         text-decoration: underline;
                                         cursor: pointer;
+                                        pointer-events: all;
                                         `
              document.getElementById('forw').style.cssText =
                                         `

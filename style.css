@@ -241,6 +241,14 @@ input{
       margin: 0px 70px;
       text-decoration: underline;
       color: blue;
+      
+  }
+
+  #prev{
+    color: black;
+    text-decoration: none;
+    cursor: default;
+    pointer-events: none;
   }
 
 
