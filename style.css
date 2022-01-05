@@ -202,6 +202,11 @@ MOVIES
     border-radius: 25px;
 }
 
+.page__selector{
+    text-align: center;
+    margin: 30px 0px;
+}
+
 ::placeholder {
     
     opacity: 1; 
@@ -225,6 +230,20 @@ input{
       flex-wrap: wrap;
       justify-content: center;
   }
+
+  .page__selector{
+      display: flex;
+      justify-content: center;
+}
+
+  #prev, #forw{
+      cursor: pointer;
+      margin: 0px 70px;
+      text-decoration: underline;
+      color: blue;
+  }
+
+
 
  .movie{
      height: 600px;
