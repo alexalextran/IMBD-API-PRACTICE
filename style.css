@@ -250,10 +250,12 @@ MOVIES
       width: 300px;
       height: 210px;
       transition: all 3s;
+      background: transparent;
   }
 
   #uh-oh{
 position: absolute;
+background: transparent;
 opacity: 0;
 transition: all 3s;
 transform: translateX(320px) translateY(-50px);
