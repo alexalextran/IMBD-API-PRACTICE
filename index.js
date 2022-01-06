@@ -4,7 +4,8 @@ let error_notification = false
 let render_succsessful = false
 var page = 1
 
-
+const scroll_fading_effect = document.querySelector('.movies__title')
+console.log(scroll_fading_effect.getBoundingClientRect())
 
 
 
@@ -295,4 +296,37 @@ async function page__decrease(){
 function changeid(id){
     localStorage.setItem("id", id)
     window.location.href = "movie.html"
+}
+
+
+function isVisible(element){
+    let elementBox = element.getBoundingClientRect();
+    let distanceFromTop = -200
+
+    if(elementBox.top - window.innerHeight < distanceFromTop){
+        return true
+    } else {
+        return false
+    }
+
+   
+}
+
+
+function scanDocument(){
+    let sectionList = document.querySelectorAll('.hidden')
+    sectionList.forEach(function(section){
+        if(isVisible(section)){
+            section.classList.remove('hidden')
+        }
+        
+    })
+
+
+}document.addEventListener("scroll", scanDocument)
+
+
+function dark__mode(){
+    
+
 }
