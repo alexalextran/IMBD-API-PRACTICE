@@ -176,9 +176,7 @@ transition: opacity 2s;
     
 }
 
-.modal{
-    
-}
+
 
 .contact__card{
     position: absolute;
@@ -193,7 +191,9 @@ transition: opacity 2s;
    align-items: center;
    justify-content: center;
    opacity: 0;
-   transition: all 2s
+   transition: all 2s;
+   max-width: 1000PX;
+   min-height: 700px;
   
   
 
