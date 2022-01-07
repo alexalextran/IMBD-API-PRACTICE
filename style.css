@@ -199,6 +199,10 @@ transition: opacity 2s;
 
 }
 
+.dark-theme .contact__card {
+    color:#000000;
+}
+
 .modal--open .contact__card{
     z-index: 60;
     opacity: 1;
@@ -245,7 +249,7 @@ transition: opacity 2s;
     color: #000000;
     font-size: 14px;
     margin: 12px 0px;
-
+    caret-color: rgb(37,216,101);
 
    
 }
@@ -279,6 +283,7 @@ top: 20px;
 left: 20px;
 font-size: 30px;
 cursor: pointer;
+z-index: 100;
 }
 
 .form__submit{
@@ -299,6 +304,68 @@ cursor: pointer;
     color: #000000;
 }
 
+.modal__overlay{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: -1;
+}
+
+.modal__overlay--loading{
+    background-color: #ffffff;
+    font-size: 80px;
+    z-index: -1;
+
+}
+
+.modal__overlay--success{
+  background-color: #4bb543;
+  font-size: 40px;
+  font-weight: 700;
+  text-align: center;
+  padding: 28px;
+  opacity: 1;
+
+}
+
+.modal__overlay--visible{
+    z-index: 1;
+    display: flex;
+   
+}
+
+.fa-spinner{
+    animation: spinner 2s infinite ;
+    height: 100px;
+
+    
+   
+}
+
+.filmroll{
+    position: relative;
+    display: flex;
+    flex-wrap: nowrap;
+    width: 100%;
+    overflow: hidden;
+    
+}
+
+
+@keyframes spinner{
+    0%{
+        transform: translateX(0px);
+    }
+
+    100%{
+        transform: translateX(-290px);
+    }
+}
 
 
 

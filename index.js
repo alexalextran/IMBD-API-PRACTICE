@@ -365,7 +365,7 @@ document.addEventListener("DOMContentLoaded", function() {
  var centerY = pointerBox.top + parseInt(centers[1]) - window.pageYOffset,
  centerX = pointerBox.left + parseInt(centers[0]) - window.pageXOffset,
  radians = Math.atan2(mouseX - centerX, mouseY - centerY),
- degrees = (radians * (180 / Math.PI) * -1) + 90; 
+ degrees = (radians * (180 / Math.PI) * -1) + 100; 
  pointer.style.transform = 'rotate('+degrees+'deg)';
 }
 
@@ -395,7 +395,7 @@ function toggleModal() {
         "service_80ih0if",
         "template_d9refyl",
         event.target,
-        "user_K1PoFs8pB2YVWStDxrUls"
+        "user_2jIT9NA6dfZ3X4lKgbInB"
       )
       .then(() => {
         loading.classList.remove("modal__overlay--visible");
