@@ -6,6 +6,7 @@
     box-sizing: border-box;
     font-family: 'Roboto', sans-serif ;
    letter-spacing: 0.9px;
+   scroll-behavior: smooth;
     
 }
 
@@ -50,7 +51,7 @@ button:active{
 
 
 section{
-    background-color: rgb(240, 240, 240);
+    background-color: rgb(245, 245, 245);
 }
 
 .contact{
