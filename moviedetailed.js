@@ -7,7 +7,7 @@ async function renderdesc(id) {
      const moviedetailed = await fetch(`http://www.omdbapi.com/?apikey=749ea3ae&i=${id}&plot=full`)
      const moviesDatadetailed = await moviedetailed.json()
 
-
+   
 
  lol = detailedmovieHTML(moviesDatadetailed)
    
@@ -21,6 +21,8 @@ movie__card.innerHTML = lol
 
     
 }
+
+
 
 
 

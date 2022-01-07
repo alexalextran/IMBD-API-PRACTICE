@@ -191,7 +191,7 @@ async function page__increase(event){
         if(page==maxpage){ 
             document.getElementById('forw').style.cssText =
                                         `
-                                        color: black;
+                                        color: gray;
                                         text-decoration: none;
                                         cursor: default;
                                         pointer-events: none;
@@ -199,7 +199,7 @@ async function page__increase(event){
 
             document.getElementById('prev').style.cssText =
                                         `
-                                        color: blue;
+                                        color: rgb(99,98,203);
                                         text-decoration: underline;
                                         cursor: pointer;
                                         pointer-events: all;
@@ -211,14 +211,14 @@ async function page__increase(event){
         else{
             document.getElementById('forw').style.cssText =
             `
-            color: blue;
+            color: rgb(99,98,203);
             text-decoration: underline;
             cursor: pointer;
             `
 
             document.getElementById('prev').style.cssText =
             `
-            color: blue;
+            color: rgb(99,98,203);
             text-decoration: underline;
             cursor: pointer;
             pointer-events: all;
@@ -254,7 +254,7 @@ async function page__decrease(){
         if(page==1){ 
             document.getElementById('prev').style.cssText =
                                         `
-                                        color: black;
+                                        color: gray;
                                         text-decoration: none;
                                         cursor: default;
                                         pointer-events: none;
@@ -265,14 +265,14 @@ async function page__decrease(){
         else{
             document.getElementById('prev').style.cssText =
                                         `
-                                        color: blue;
+                                        color: rgb(99,98,203);
                                         text-decoration: underline;
                                         cursor: pointer;
                                         pointer-events: all;
                                         `
              document.getElementById('forw').style.cssText =
                                         `
-                                        color: blue;
+                                        color: rgb(99,98,203);
                                         text-decoration: underline;
                                         cursor: pointer;
                                         `
@@ -326,7 +326,50 @@ function scanDocument(){
 }document.addEventListener("scroll", scanDocument)
 
 
+let contrastToggle = false;
+
 function dark__mode(){
+
+
+    contrastToggle = !contrastToggle;
+
+  if(contrastToggle == true){
+    document.body.classList += " dark-theme"
+  }
+  else {
+    document.body.classList.remove("dark-theme")
+  }
     
 
 }
+
+
+document.addEventListener("DOMContentLoaded", function() {
+	var pointer = document.getElementById("projector"),
+	pointerBox = pointer.getBoundingClientRect(),
+	centerPoint = window.getComputedStyle(pointer).transformOrigin,
+	centers = centerPoint.split(" ");
+
+	function rotatePointer(e) {
+		var pointerEvent = e;
+       	if (e.targetTouches && e.targetTouches[0]) {
+          		e.preventDefault(); 
+          		pointerEvent = e.targetTouches[0];
+          		mouseX = pointerEvent.pageX;
+          		mouseY = pointerEvent.pageY;
+    		} else {
+          		mouseX = e.clientX,
+          		mouseY = e.clientY;
+    		}
+
+ var centerY = pointerBox.top + parseInt(centers[1]) - window.pageYOffset,
+ centerX = pointerBox.left + parseInt(centers[0]) - window.pageXOffset,
+ radians = Math.atan2(mouseX - centerX, mouseY - centerY),
+ degrees = (radians * (180 / Math.PI) * -1) + 90; 
+ pointer.style.transform = 'rotate('+degrees+'deg)';
+}
+
+window.addEventListener('mousemove', rotatePointer);
+window.addEventListener('touchmove', rotatePointer);
+window.addEventListener('touchstart', rotatePointer);
+})

@@ -17,7 +17,7 @@
    
     <header>
         <div class="image__wrapper">
-            <i class="fas fa-film"></i>
+            <div><img id = "projector" src="/assets/output-onlinepngtools.png"></div>
         </div>
 
         <div class="nav">
@@ -33,7 +33,7 @@
                 </li>
 
                 <li>
-                    <button class="dark__mode"><i class="fas fa-adjust"></i></button onclick=dark__mode()>
+                    <button onclick="dark__mode()" class="dark__mode"><i class="fas fa-adjust"></i></button >
                 </li>
             </ul>
         </div>
@@ -71,14 +71,23 @@
                 <p>On <span class="green">Demand</span> Content</p>
             </div>
 
+
+            
+
         </div>
+
+    </div>
+
+    <div class="contact__card">
+        heeehhe xd
+    </div>
 
 
 
         
 
     </div>
-
+            
         <div style="display: flex; justify-content: center;"> <i class="fas fa-arrows-alt-v"></i></div>
            
     
@@ -94,7 +103,7 @@
     </div>
 
 <div class="search"> 
-    <form onsubmit="search(event)" style="background-color: rgb(220, 220, 220);">
+    <form onsubmit="search(event)">
     <input required type="search" id="searchBar" placeholder="Search...">
 
     <input type="search"  id="searchBar__year" placeholder="Year...">
@@ -136,10 +145,7 @@
     </div>
 
   </section>
-<script src="index.js">
 
-    
-</script> 
 
 
   <footer>
@@ -147,4 +153,8 @@
   </footer>
 
 </body>
+<script src="index.js">
+
+    
+</script> 
 </html>
