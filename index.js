@@ -179,7 +179,7 @@ async function page__increase(event){
     const searchvalue = document.getElementById('searchBar').value
     const searchyear = document.getElementById('searchBar__year').value
     var searchtype = document.getElementById("filter").value;
-        const movies = await fetch(`http://www.omdbapi.com/?apikey=749ea3ae&s=${searchvalue}&y=${searchyear}&type=${searchtype}&page=${page}`)
+        const movies = await fetch(`https://www.omdbapi.com/?apikey=749ea3ae&s=${searchvalue}&y=${searchyear}&type=${searchtype}&page=${page}`)
        
         const moviesData = await movies.json()
         const maxpage = (Math.ceil(moviesData.totalResults / 10))
@@ -242,7 +242,7 @@ async function page__decrease(){
     const searchvalue = document.getElementById('searchBar').value
     const searchyear = document.getElementById('searchBar__year').value
     var searchtype = document.getElementById("filter").value;
-        const movies = await fetch(`http://www.omdbapi.com/?apikey=749ea3ae&s=${searchvalue}&y=${searchyear}&type=${searchtype}&page=${page}`)
+        const movies = await fetch(`https://www.omdbapi.com/?apikey=749ea3ae&s=${searchvalue}&y=${searchyear}&type=${searchtype}&page=${page}`)
        
         const moviesData = await movies.json()
         const maxpage = (Math.ceil(moviesData.totalResults / 10))
