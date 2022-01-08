@@ -4,7 +4,7 @@ const movie__card = document.querySelector(".movie__card")
 async function renderdesc(id) {
   
     
-     const moviedetailed = await fetch(`http://www.omdbapi.com/?apikey=749ea3ae&i=${id}&plot=full`)
+     const moviedetailed = await fetch(`https://www.omdbapi.com/?apikey=749ea3ae&i=${id}&plot=full`)
      const moviesDatadetailed = await moviedetailed.json()
 
    
