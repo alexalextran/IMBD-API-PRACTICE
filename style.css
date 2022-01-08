@@ -245,6 +245,7 @@ transition: opacity 2s;
    transition: all 2s;
    max-width: 1000PX;
    min-height: 700px;
+   visibility: hidden;
   
   
 
@@ -258,7 +259,8 @@ transition: opacity 2s;
     z-index: 60;
     opacity: 1;
     box-shadow: 0 20px 80px 0px rgb(0, 0, 0, 0.55);
-    transition: all 2s
+    transition: all 2s;
+    visibility: visible;
 
 }
 
