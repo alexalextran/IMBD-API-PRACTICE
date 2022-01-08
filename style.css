@@ -932,3 +932,13 @@ transform: translateX(320px) translateY(-50px);
     color: white;
     }
 
+
+    body::-webkit-scrollbar {
+        width: 12px;
+        z-index: 100;
+        background-color: rgb(56,56,56);
+      }
+      body::-webkit-scrollbar-thumb {
+        background-color: rgb(37,216,101);
+        box-shadow: 0 -100vh 0 100vh white;
+      }
