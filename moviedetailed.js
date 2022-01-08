@@ -224,7 +224,7 @@ function ratingexist(desc){
         </li>
         
         <li class="rates">
-        Rotten tomatoes <img class="tomato" src="/assets/1009px-Rotten_Tomatoes.svg.png">${(desc[1].Value)}
+        Rotten tomatoes <img class="tomato" src="assets/1009px-Rotten_Tomatoes.svg.png">${(desc[1].Value)}
         </li>
         
         `
@@ -238,7 +238,7 @@ function ratingexist(desc){
         
         <li class="rates" style="display:flex; flex-direction: column">
         <p class="rt"> Rotten tomatoes </p>
-        <p>  <img class="tomato" src="/assets/1009px-Rotten_Tomatoes.svg.png"> ${(desc[1].Value)}</p>
+        <p>  <img class="tomato" src="assets/1009px-Rotten_Tomatoes.svg.png"> ${(desc[1].Value)}</p>
         </li>
 
         <li class="rates">
