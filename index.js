@@ -408,3 +408,8 @@ function toggleModal() {
         );
       });
   }
+
+
+  function note(){
+      alert("Just a little note before you explore, My name is alex and this is a little mock IMDB movie website project of mine built using js API's, please feel free to explore!!")
+  }
