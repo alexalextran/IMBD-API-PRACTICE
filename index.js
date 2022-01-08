@@ -4,19 +4,14 @@ let error_notification = false
 let render_succsessful = false
 var page = 1
 
-const scroll_fading_effect = document.querySelector('.movies__title')
-console.log(scroll_fading_effect.getBoundingClientRect())
-
-
 
 
 async function search(event){
 
-    
     event.preventDefault();
 
-
-    if(render_succsessful == true){
+    //clears all pre-existing movies whenever the user clicks search
+  if(render_succsessful){
         movieslist.innerHTML = "";
         selector.innerHTML = ""
         render_succsessful = false
@@ -24,92 +19,66 @@ async function search(event){
 
 
 try{
-    
     const searchvalue = document.getElementById('searchBar').value
-const searchyear = document.getElementById('searchBar__year').value
-var searchtype = document.getElementById("filter").value;
+    const searchyear = document.getElementById('searchBar__year').value
+    var searchtype = document.getElementById("filter").value;
     var movies = await fetch(`https://www.omdbapi.com/?apikey=749ea3ae&s=${searchvalue}&y=${searchyear}&type=${searchtype}`)
     var moviesData = await movies.json()
+
+    //results only in lots of 10
     const maxpage = (Math.ceil(moviesData.totalResults / 10))
-    console.log(maxpage)
     page = 1
 
 
    
-    
-   
-    var hi = moviesData.Search.map((movie)=> movieHTML(movie)).join('')
+    var moviesDataHTML = moviesData.Search.map((movie)=> movieHTML(movie)).join('')
         
-    
-                if(error_notification===true){
+                    //if statement that ensures the frog animation i.e erorr message does not show if a movie is found
+                if(error_notification){
                      error_notification = false
-                     
                      
                         document.getElementById('phrog').style.cssText =
                         `
                         transform: rotate(0deg) translateX(0px);
                         `
-
                         document.getElementById('uh-oh').style.cssText =
                         `
                         opacity: 0;
                         `
-                                
-                            
-        
+
                 }
 
+
+
+                if(render_succsessful == false){
+                        // renders movies and allows for multiple movies to be rendered before page is refreshed
+                     movieslist.innerHTML = moviesDataHTML
                 
-
-                
-
-
-
-
-if(render_succsessful == false){
-
-
-
-movieslist.innerHTML = hi
-
-selector.innerHTML = page__selector()
-render_succsessful = true
-
-if (maxpage == 1){
-    
-    document.getElementById('forw').style.cssText =
-    `
-    color: black;
-    text-decoration: none;
-    cursor: none;
-    pointer-events: none;
-    `
+                    selector.innerHTML = page__selector()
+                    render_succsessful = true
+                        // if statement that disables the forward button if the max number of pages is only 1
+                    if (maxpage == 1){
+                        document.getElementById('forw').style.cssText =
+                        `
+                        color: black;
+                        text-decoration: none;
+                        cursor: none;
+                        pointer-events: none;
+                        `
+                        }
 
     }
-}
-
-
-
-
-            
-
-
-
-    console.log(moviesData)
-}
+                                            }
 
                 catch(e){
-
                  error_notification = true
-                    
-                 
-
+        
+                 // if statment that displays error message if there is an issue
                 if (error_notification == true)  {
                                         document.getElementById('phrog').style.cssText =
                                         `
                                         transform: rotate(30deg) translateX(130px);
                                         `
-
                                         document.getElementById('uh-oh').style.cssText =
                                         `
                                         opacity: 1;
@@ -121,20 +90,21 @@ if (maxpage == 1){
           
 }
 
+// if image poster is not avliable, error image shows
 function movie_poster(poster){
     if(poster == "N/A"){
-        return `<img style="width:200px; height:200px;"src="/assets/missingpng.png">`
+        return `<img style="width:200px; height:200px;"src="assets/missingpng.png">`
     }
-    
     return `<img class="poster" src = "${poster}">`
-
-   
 }
 
 
+
+// HTML template for rendering movies
 function movieHTML(movie){
 
-return  `<div class="movie" onclick="changeid('${movie.imdbID}')">
+return  `
+<div class="movie" onclick="changeid('${movie.imdbID}')">
 
     <div>
     ${movie_poster(movie.Poster)}
@@ -151,12 +121,13 @@ return  `<div class="movie" onclick="changeid('${movie.imdbID}')">
     <p class="release__date">
     ${movie.Type}
     </p>
+
 </div>`
 
 
 }
 
-
+//renders page forward and backward
 function page__selector(){
     return `
     
@@ -167,27 +138,21 @@ function page__selector(){
 
 
 
-
-async function page__increase(event){
+// increases page number and renders results
+async function page__increase(){
   
-    
     page++
-    
     const page__number = document.getElementById('page__number')
     page__number.innerHTML = page
-
     const searchvalue = document.getElementById('searchBar').value
     const searchyear = document.getElementById('searchBar__year').value
     var searchtype = document.getElementById("filter").value;
         const movies = await fetch(`https://www.omdbapi.com/?apikey=749ea3ae&s=${searchvalue}&y=${searchyear}&type=${searchtype}&page=${page}`)
-       
         const moviesData = await movies.json()
         const maxpage = (Math.ceil(moviesData.totalResults / 10))
            
 
-       
-       
-
+        // disables forward button if max page is reached
         if(page==maxpage){ 
             document.getElementById('forw').style.cssText =
                                         `
@@ -196,7 +161,7 @@ async function page__increase(event){
                                         cursor: default;
                                         pointer-events: none;
                                         `
-
+            //ensures prev button is enabled if max page reached
             document.getElementById('prev').style.cssText =
                                         `
                                         color: rgb(99,98,203);
@@ -226,9 +191,7 @@ async function page__increase(event){
             
         }
             
-
-        var hi = moviesData.Search.map((movie)=> movieHTML(movie)).join('')
-        movieslist.innerHTML = hi
+        movieslist.innerHTML = moviesData.Search.map((movie)=> movieHTML(movie)).join('')
 }
 
 
@@ -245,11 +208,7 @@ async function page__decrease(){
         const movies = await fetch(`https://www.omdbapi.com/?apikey=749ea3ae&s=${searchvalue}&y=${searchyear}&type=${searchtype}&page=${page}`)
        
         const moviesData = await movies.json()
-        const maxpage = (Math.ceil(moviesData.totalResults / 10))
-        
-
-       
-       
+     
 
         if(page==1){ 
             document.getElementById('prev').style.cssText =
@@ -275,30 +234,21 @@ async function page__decrease(){
                                         color: rgb(99,98,203);
                                         text-decoration: underline;
                                         cursor: pointer;
-                                        `
-                                        
-
-            
+                                        ` 
         }
             
-
-        var hi = moviesData.Search.map((movie)=> movieHTML(movie)).join('')
-        movieslist.innerHTML = hi
+        movieslist.innerHTML = moviesData.Search.map((movie)=> movieHTML(movie)).join('')
 }
 
 
 
-
-
-
-
-
+// store IMBD id of the movie that the user clicks on for use in moviedetailed.js
 function changeid(id){
     localStorage.setItem("id", id)
     window.location.href = "movie.html"
 }
 
-
+// for use in creating a fade effect whenever certain objects come into view
 function isVisible(element){
     let elementBox = element.getBoundingClientRect();
     let distanceFromTop = -200
@@ -308,42 +258,46 @@ function isVisible(element){
     } else {
         return false
     }
-
-   
 }
 
-
+// creates a fade effect for all sections whenever the section comes into viewheight
 function scanDocument(){
     let sectionList = document.querySelectorAll('.hidden')
     sectionList.forEach(function(section){
         if(isVisible(section)){
             section.classList.remove('hidden')
-        }
-        
+        }  
     })
 
+}
+document.addEventListener("scroll", scanDocument)
 
-}document.addEventListener("scroll", scanDocument)
-
-
+//dark mode enabller
 let contrastToggle = false;
-
 function dark__mode(){
-
-
     contrastToggle = !contrastToggle;
-
-  if(contrastToggle == true){
+  if(contrastToggle){
     document.body.classList += " dark-theme"
   }
   else {
     document.body.classList.remove("dark-theme")
   }
-    
-
 }
 
+//contact card enabller
+let isModalOpen = false;
+function toggleModal() {
+    console.log('lmao')
+    if (isModalOpen) {
+      isModalOpen = false;
+      return document.body.classList.remove("modal--open");
+    }
+    isModalOpen = true;
+    document.body.classList += " modal--open";
+  }
 
+
+// rotates the logo based on position of mouse
 document.addEventListener("DOMContentLoaded", function() {
 	var pointer = document.getElementById("projector"),
 	pointerBox = pointer.getBoundingClientRect(),
@@ -361,30 +315,18 @@ document.addEventListener("DOMContentLoaded", function() {
           		mouseX = e.clientX,
           		mouseY = e.clientY;
     		}
-
  var centerY = pointerBox.top + parseInt(centers[1]) - window.pageYOffset,
  centerX = pointerBox.left + parseInt(centers[0]) - window.pageXOffset,
  radians = Math.atan2(mouseX - centerX, mouseY - centerY),
  degrees = (radians * (180 / Math.PI) * -1) + 100; 
  pointer.style.transform = 'rotate('+degrees+'deg)';
 }
-
 window.addEventListener('mousemove', rotatePointer);
 window.addEventListener('touchmove', rotatePointer);
 window.addEventListener('touchstart', rotatePointer);
 })
 
-let isModalOpen = false;
-function toggleModal() {
-    console.log('lmao')
-    if (isModalOpen) {
-      isModalOpen = false;
-      return document.body.classList.remove("modal--open");
-    }
-    isModalOpen = true;
-    document.body.classList += " modal--open";
-  }
-
+//email js function
   function contact(event) {
     event.preventDefault();
     const loading = document.querySelector(".modal__overlay--loading");
@@ -408,6 +350,7 @@ function toggleModal() {
         );
       });
   }
+
 
 
   function note(){
