@@ -28,7 +28,7 @@ try{
     const searchvalue = document.getElementById('searchBar').value
 const searchyear = document.getElementById('searchBar__year').value
 var searchtype = document.getElementById("filter").value;
-    var movies = await fetch(`http://www.omdbapi.com/?apikey=749ea3ae&s=${searchvalue}&y=${searchyear}&type=${searchtype}`)
+    var movies = await fetch(`https://www.omdbapi.com/?apikey=749ea3ae&s=${searchvalue}&y=${searchyear}&type=${searchtype}`)
     var moviesData = await movies.json()
     const maxpage = (Math.ceil(moviesData.totalResults / 10))
     console.log(maxpage)
