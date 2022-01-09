@@ -49,6 +49,7 @@ header{
     justify-content: space-between;
     width: 80%;
     margin: auto;
+    min-width: 1000px;
 
 }
 
@@ -475,6 +476,7 @@ MOVIES
     align-items: center;
     width: 100%;
     background-color: rgb(220, 220, 220);
+    min-width: 1500px;
     
    
     
