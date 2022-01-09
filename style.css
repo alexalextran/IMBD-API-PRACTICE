@@ -334,6 +334,18 @@ z-index: 100;
 
 }
 
+.movies__overlay--loading{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 80px;
+    z-index: -1;
+    visibility: hidden;
+    width: 50%;
+    max-width: 890px;
+}
+
 .modal__overlay--success{
   background-color: #4bb543;
   font-size: 40px;
@@ -347,6 +359,7 @@ z-index: 100;
 .modal__overlay--visible{
     z-index: 1;
     display: flex;
+    visibility: visible;
    
 }
 

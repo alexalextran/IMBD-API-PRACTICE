@@ -1,5 +1,6 @@
 const movieslist = document.querySelector(".movie__list")
-const selector = document.querySelector(".page__selector")
+const selector = document.querySelector(".page__selector")   
+ const loading = document.querySelector(".movies__overlay--loading");
 let error_notification = false
 let render_succsessful = false
 var page = 1
@@ -17,13 +18,21 @@ async function search(event){
         render_succsessful = false
     }
 
+    loading.classList += " modal__overlay--visible";
+
 
 try{
     const searchvalue = document.getElementById('searchBar').value
     const searchyear = document.getElementById('searchBar__year').value
+   
+    
     var searchtype = document.getElementById("filter").value;
     var movies = await fetch(`https://www.omdbapi.com/?apikey=749ea3ae&s=${searchvalue}&y=${searchyear}&type=${searchtype}`)
     var moviesData = await movies.json()
+
+    
+        loading.classList.remove("modal__overlay--visible");
+    
 
     //results only in lots of 10
     const maxpage = (Math.ceil(moviesData.totalResults / 10))
@@ -72,6 +81,7 @@ try{
 
                 catch(e){
                  error_notification = true
+                 console.log(e)
         
                  // if statment that displays error message if there is an issue
                 if (error_notification == true)  {
